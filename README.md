@@ -1,4 +1,4 @@
-# Spring Boot Project User Management System.
+# Spring Boot Project for Counting Visitors on a URL.
 
 - Frameworks and Language used :
   - Spring Boot (SNAPSHOT 3.0.5)
