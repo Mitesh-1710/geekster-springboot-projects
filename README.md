@@ -6,25 +6,28 @@
 
 - Data Flow :
   1. Controller
-      - addUser : saves user into the database.
-      - getUser : get user from the database based on selected user id.
-      - getAllUser : get the list of users available in the database.
-      - updateUser : updated user data in the database  based on selected user id.
-      - deleteUser : delete user from the database based on selected user id.
+      - addUser : This method is used to call the addUser method of the service class to saves user into the database.
+      - getUser : This method is used to call the getUser method of the service class to get user from the database based on selected user id.
+      - getAllUser : This method is used to call the getAllUser method of the service class to get the list of users available in the database.
+      - updateUser : This method is used to call the updateUser method of the service class to updated user data in the database based on selected user id.
+      - deleteUser :  This method is used to call the deleteUser method of the service class to delete user from the database based on selected user id.
+      
   2. Services
-      - addUser : saves user into the database.
-      - getUser : get user from the database based on selected user id.
-      - getAllUser : get the list of users available in the database.
-      - updateUser : updated user data in the database  based on selected user id.
-      - deleteUser : delete user from the database based on selected user id.
+      - addUser : This method is used to call the save method of the repository class to saves user into the database.
+      - getUser : This method is used to call the findById method of the repository class to get user from the database based on selected user id.
+      - getAllUser : This method is used to call the findAll method of the repository class to get the list of users available in the database.
+      - updateUser : This method is used to call the update method of the repository class to updated user data in the database based on selected user id.
+      - deleteUser : This method is used to call the delete method of the repository class to delete user from the database based on selected user id.
+      
   3. Repository
-      - save : saves user into the database.
-      - findById : get user from the database based on selected user id.
-      - findAll : get the list of users available in the database.
-      - update : updated user data in the database  based on selected user id.
-      - delete : delete user from the database based on selected user id.
+      - save : This method is used to saves user into the database.
+      - findById : This method is used to get user from the database based on selected user id.
+      - findAll : This method is used to get the list of users available in the database.
+      - update : This method is used to updated user data in the database  based on selected user id.
+      - delete : This method is used to delete user from the database based on selected user id.
+      
   4. Database Design
-      - Used HashMap to store userId as a key and user object as a velue.
+      - Used HashMap to store userId as a key and user object as a value.
    
 - Data Structure used in your project :
   - List
