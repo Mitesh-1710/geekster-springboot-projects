@@ -13,7 +13,7 @@ import com.geekster.visitor.count.service.UrlHitService;
 
 @RestController
 @RequestMapping(ApiPath.BASE_URL)
-public class UrlHitControlleController {
+public class UrlHitController {
 
 	@Autowired
 	private UrlHitService urlHitService;
