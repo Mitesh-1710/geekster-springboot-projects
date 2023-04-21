@@ -6,33 +6,25 @@
 
 - Data Flow :
   1. Controller
-      - addUser : saves user into the database.
-      - getUser : get user from the database based on selected user id.
-      - getAllUser : get the list of users available in the database.
-      - updateUser : updated user data in the database  based on selected user id.
-      - deleteUser : delete user from the database based on selected user id.
+      - getHitCount : This method is used to call the getHitCount method of service class to get the total number of hits made by all the user from the database.
+      - getHitCountByUsername : This method is used to call the getHitCountByUsername method of service class to get the total number of hits made by a single user from the database.
+     
   2. Services
-      - addUser : saves user into the database.
-      - getUser : get user from the database based on selected user id.
-      - getAllUser : get the list of users available in the database.
-      - updateUser : updated user data in the database  based on selected user id.
-      - deleteUser : delete user from the database based on selected user id.
+      - getHitCount : This method is used to call the getCount method of repository class get the total number of hits made by all the user from the database.
+      - getHitCountByUsername :  This method is used to call the getCountByUsernmae method of repository class get the total number of hits made by a single user from the database.
+      
   3. Repository
-      - save : saves user into the database.
-      - findById : get user from the database based on selected user id.
-      - findAll : get the list of users available in the database.
-      - update : updated user data in the database  based on selected user id.
-      - delete : delete user from the database based on selected user id.
+      - getCount : This method is used to fetch the total number of hits made by all the user from the database.
+      - getCountByUsernmae : This method is used to fetch the total number of hits made by a single user from the database.
+      
   4. Database Design
-      - Used HashMap to store userId as a key and user object as a velue.
+      - Used HashMap to store username as a key and visitor object as a value.
    
 - Data Structure used in your project :
-  - List
   - HashMap
 
 - Project Summary :
 ```
-  This is a Spring Boot project of User Management System. User can register themselves by filling the required information.
-  User can able to fetch their saved information , can able to update the information ,
-  as well as can able to unregister themselves from the system if they want to.
+  This is a Spring Boot project for counting visitors on a particular url. We can get the total number of hits made by all the users
+  as well as the total number of hits made by a single user on the url.
 ```
