@@ -16,6 +16,8 @@ import com.geekster.user.management.system.constants.ApiPath;
 import com.geekster.user.management.system.model.User;
 import com.geekster.user.management.system.service.UserService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping(ApiPath.BASE_URL)
 public class UserController {
@@ -24,7 +26,7 @@ public class UserController {
 	private UserService userService;
 
 	@PostMapping(ApiPath.CREATE_USER_API)
-	public String addUser(@RequestBody User user) {
+	public String addUser(@Valid @RequestBody User user) {
 		return userService.addUser(user);
 	}
 
@@ -39,7 +41,7 @@ public class UserController {
 	}
 
 	@PutMapping(ApiPath.UPDATE_USER_API)
-	public String updateUser(@RequestBody User user) {
+	public String updateUser(@Valid @RequestBody User user) {
 		return userService.updateUser(user);
 
 	}
