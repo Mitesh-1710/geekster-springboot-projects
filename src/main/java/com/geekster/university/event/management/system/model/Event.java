@@ -3,7 +3,6 @@ package com.geekster.university.event.management.system.model;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.geekster.university.event.management.system.constants.UniversityEventManagementSystemConstants;
 
 import jakarta.persistence.Column;
@@ -44,17 +43,14 @@ public class Event {
 	private String locationOfEvent;
 
 	@NotNull
-	@JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
 	@Column(name = UniversityEventManagementSystemConstants.FIELD_EVENT_DATE)
 	private LocalDate date;
 
 	@NotNull
-	@JsonFormat(pattern = "HH:mm:ss", shape = JsonFormat.Shape.STRING)
 	@Column(name = UniversityEventManagementSystemConstants.FIELD_EVENT_START_TIME)
 	private LocalTime startTime;
 
 	@NotNull
-	@JsonFormat(pattern = "HH:mm:ss", shape = JsonFormat.Shape.STRING)
 	@Column(name = UniversityEventManagementSystemConstants.FIELD_EVENT_END_TIME)
 	private LocalTime endTime;
 
