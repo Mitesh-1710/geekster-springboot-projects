@@ -11,7 +11,8 @@ public class UserManagementSystemConstants {
 	public static final String USER_DELETE_RESPONSE = "User deleted sucessfully!";
 	public static final String INVALID_USER_ID = "Invalid User Id / User not Registered in the System.";
 	public static final String DATABASE_ERROR = "Could not able to save User / Database Error.";
-	public static final long MAX_NUMBER = 9999999999l;
+	public static final long MAX_NUMBER = 999999999999l;
+	public static final long MIN_NUMBER = 111111111111l;
 
 	
 	

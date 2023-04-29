@@ -33,8 +33,8 @@ public class User {
 	private String address;
 
 	@NotNull
-	@Min(value = 1111111111, message = "user phone number should have at least 10 digits")
-	@Max(value = UserManagementSystemConstants.MAX_NUMBER, message = "user phone number should not exceed 10 digits")
+	@Min(value = UserManagementSystemConstants.MIN_NUMBER, message = "user phone number should have at least 12 digits")
+	@Max(value = UserManagementSystemConstants.MAX_NUMBER, message = "user phone number should not exceed 12 digits")
 	private long phoneNumber;
 
 	@JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
