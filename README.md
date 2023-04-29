@@ -6,12 +6,15 @@
 
 - Data Flow :
   1. Controller
-  	  > Student
+      <br/>
+      > Student
       - addStudent : This method is used to call the addStudent method of the service class to save the student data into the database.
       - updateDepartmentByStudentId : This method is used to call the updateDepartmentByStudentId method of the service class to updated student's department in the database based on selected student id.
       - deleteStudentById : This method is used to call the deleteStudentById method of the service class to delete student from the database based on selected student id.
       - getAllStudents : This method is used to call the getAllStudents method of the service class to get the list of students data available in the database.
       - getStudentById :  This method is used to call the getStudentById method of the service class to get the student data from the database based on selected student id.
+        
+      <br/>
       
       > Event
       - addEvent : This method is used to call the addEvent method of the service class to save the event data into the database.
@@ -20,12 +23,15 @@
       - getAllEventsByDate : This method is used to call the getAllEventsByDate method of the service class to get the list of events data available in the database based on selected date.
       
   2. Services
-  	  > Student
+      <br/>
+      > Student
       - addStudent : This method is used to call the save method of the repository class to save the student data into the database.
       - updateDepartmentByStudentId :  This method is also used to call the save method of the repository class to updated the student's department in the database based on selected student id.
       - deleteStudentById : This method is used to call the deleteById method of the repository class to delete the student data from the database based on selected student id.
       - getAllStudents : This method is used to call the findAll method of the repository class to get the list of students available in the database. 
       - getStudentById :  This method is used to call the findById method of the repository class to get the student data from the database based on selected student id.
+      
+      <br/>
       
       > Event
       - addEvent : This method is used to call the save method of the repository class to save the event data into the database.
@@ -35,15 +41,17 @@
       
   3. Repository
       - Used `Predefined` JpaRepository methods such as findById , save , deleteById , findAll for basic CRUD operations.
+        
+      <br/>
       
       > Event 
-      - findAllByDate `User Defined Method` : This method is used to return the list of Event based on selected date.
+      - findAllByDate `Userdefined` : This method is used to return the list of Event based on selected date.
       
   4. Database Design
       - Used H2 Database
       ```
 		table event (
-       		event_id integer not null,
+       	event_id integer not null,
         	event_date date not null,
         	end_time time not null,
         	event_name varchar(255),
@@ -53,7 +61,7 @@
     	)
     	
 		table student (
-       		student_id integer not null,
+       	student_id integer not null,
         	age integer not null check (age<=25 AND age>=18),
         	department varchar(255) not null,
         	first_name varchar(255),
@@ -62,7 +70,7 @@
     	)
       ```
    
-- Data Structure used in your project :
+- Data Structure used in project :
   - List
 
 - Project Summary :
