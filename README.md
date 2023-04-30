@@ -32,8 +32,6 @@
   3. Repository
       - Used `Predefined` JpaRepository methods such as findById , save , deleteById , findAll for basic CRUD operations.
         
-      <br/>
-      
       - findAllByTitle `Userdefined` : This method is used to return the list of jobs based on selected job title.
       - findAllBySalaryGreaterThan `Userdefined` : This method is used to return the list of jobs where job salary is greater than selected job salary.
       - findAllByAppliedDate `Userdefined` : This method is used to return the list of jobs based on selected job applied date.
@@ -42,7 +40,7 @@
       - Used H2 Database
       ```
 		table job (
-        job_id bigint not null,
+        	job_id bigint not null,
         	applied_date date not null,
         	company_name varchar(255) not null,
         	description varchar(255) not null,
@@ -66,5 +64,4 @@
   as well as can able to unregister/delete the job data from the portal if they want to.
   Also using this portal candidates can able search for their required jobs based on job's title , date , salary and keyword. Here, keyword will be
   matched against the job description then, jobs data will be fetched.
-  
 ```
