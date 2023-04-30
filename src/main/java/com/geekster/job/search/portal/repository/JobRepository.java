@@ -1,0 +1,20 @@
+package com.geekster.job.search.portal.repository;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.geekster.job.search.portal.model.Job;
+
+public interface JobRepository extends JpaRepository<Job, Integer> {
+
+	public List<Job> findAllByTitle(String title);
+
+	@Query(value = "SELECT * FROM Job j WHERE j.salary >= :salary", nativeQuery = true)
+	public List<Job> findAllBySalaryGreaterThan(Integer salary);
+
+	public List<Job> findAllByAppliedDate(LocalDate date);
+
+}
