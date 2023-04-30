@@ -16,5 +16,8 @@ public interface JobRepository extends JpaRepository<Job, Integer> {
 	public List<Job> findAllBySalaryGreaterThan(Integer salary);
 
 	public List<Job> findAllByAppliedDate(LocalDate date);
+	
+	@Query(value = "DELETE FROM Job WHERE id = :jobId", nativeQuery = true)
+	public void deleteById(Long jobId);
 
 }
