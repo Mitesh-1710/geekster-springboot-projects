@@ -48,6 +48,7 @@
       - getAllProductsByCategory : This method is used to call the findAllByCategory method of the repository class to get the list of products data available in the database based on selected product category.
       
       <br/>
+      
       > Order
       - addOrder : This method is used to call the save method of the repository class to save the order data into the database.
       - getOrderById :  This method is used to call the findById method of the repository class to get the order data from the database based on selected order id.
