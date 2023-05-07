@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.geekster</groupId>
-	<artifactId>employee.management.system</artifactId>
+	<artifactId>ecommerce</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>employee.management.system</name>
-	<description>Spring Boot project of employee management system.</description>
+	<name>ecommerce</name>
+	<description>Spring Boot project of ecommerce API.</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
