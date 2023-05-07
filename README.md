@@ -7,61 +7,99 @@
 - Data Flow :
   1. Controller
       <br/>
-      > Employee
-      - addEmployee : This method is used to call the addEmployee method of the service class to save the employee data into the database.
-      - updateEmployeeById : This method is used to call the updateEmployeeById method of the service class to updated employee data in the database based on selected employee id.
-      - deleteEmployeeById : This method is used to call the deleteEmployeeById method of the service class to delete employee from the database based on selected employee id.
-      - getAllEmployees : This method is used to call the getAllEmployees method of the service class to get the list of employees data available in the database.
-      - getEmployeeById :  This method is used to call the getEmployeeById method of the service class to get the employee data from the database based on selected employee id.
+      > User
+      - addUser : This method is used to call the addUser method of the service class to save the user data into the database.
+      - getUserById :  This method is used to call the getUserById method of the service class to get the user data from the database based on selected user id.
         
       <br/>
       
       > Address
       - addAddress : This method is used to call the addAddress method of the service class to save the address data into the database.
-      - updateAddressById : This method is used to call the updateAddressById method of the service class to updated the address data in the database based on selected address id.
-      - deleteAddressById : This method is used to call the deleteAddressById method of the service class to delete the address from the database based on selected address id.
-      - getAllAddresses : This method is used to call the getAllAddresses method of the service class to get the list of addresses data available in the database.
-      - getAddressById :  This method is used to call the getAddressById method of the service class to get the address data from the database based on selected address id.
-        
+       
+      <br/>
+       
+      > Product
+      - addProduct : This method is used to call the addProduct method of the service class to save the product data into the database.
+      - deleteProductById : This method is used to call the deleteProductById method of the service class to delete product from the database based on selected product id.
+      - getAllProductsByCategory : This method is used to call the getAllProductsByCategory method of the service class to get the list of products data available in the database based on selected product category.
+          
+      <br/>
+      
+      > Order
+      - addOrder : This method is used to call the addOrder method of the service class to save the order data into the database.
+      - getOrderById :  This method is used to call the getOrderById method of the service class to get the order data from the database based on selected order id.
+            
   2. Services
       <br/>
-      > Employee
-      - addEmployee : This method is used to call the save method of the repository class to save the employee data into the database.
-      - updateEmployeeById :  This method is also used to call the save method of the repository class to updated the employee data in the database based on selected employee id.
-      - deleteEmployeeById : This method is used to call the deleteById method of the repository class to delete the employee data from the database based on selected employee id.
-      - getAllEmployees : This method is used to call the findAll method of the repository class to get the list of employees available in the database. 
-      - getEmployeeById :  This method is used to call the findById method of the repository class to get the employee data from the database based on selected employee id.
+      > User
+      - addUser : This method is used to call the save method of the repository class to save the user data into the database.
+      - getUserById :  This method is used to call the findById method of the repository class to get the user data from the database based on selected user id.
       
       <br/>
       
       > Address
       - addAddress : This method is used to call the save method of the repository class to save the address data into the database.
-      - updateAddressById :  This method is also used to call the save method of the repository class to updated the address data in the database based on selected address id.
-      - deleteAddressById : This method is used to call the deleteById method of the repository class to delete the address data from the database based on selected address id.
-      - getAllAddresses : This method is used to call the findAll method of the repository class to get the list of addresses available in the database. 
-      - getAddressById :  This method is used to call the findById method of the repository class to get the address data from the database based on selected address id.
+      
+      <br/>
+       
+      > Product
+      - addProduct : This method is used to call the save method of the repository class to save the product data into the database.
+      - deleteProductById : This method is used to call the deleteById method of the repository class to delete the product data from the database based on selected product id.
+      - getAllProductsByCategory : This method is used to call the findAllByCategory method of the repository class to get the list of products data available in the database based on selected product category.
+      
+      <br/>
+      > Order
+      - addOrder : This method is used to call the save method of the repository class to save the order data into the database.
+      - getOrderById :  This method is used to call the findById method of the repository class to get the order data from the database based on selected order id.
       
   3. Repository
       - Used `Predefined` JpaRepository methods such as findById , save , deleteById , findAll for basic CRUD operations.
+      
+      <br/>
+      
+      > Product
+      - findAllByCategory `Userdefined` : This method is used to get the list of products data available in the database based on selected product category. 
         
       
   4. Database Design
       - Used MySQL Database
       ```
-       table employee (
-       	id bigint not null auto_increment,
-        	first_name varchar(255) not null,
-        	last_name varchar(255) not null,
-        	address bigint not null,
+       table user (
+       	id integer not null auto_increment,
+        	email varchar(255) not null,
+        	name varchar(255) not null,
+        	password varchar(255) not null,
+        	phone_number bigint not null,
         	primary key (id)
     	)
     	
-		table address (
-       	id bigint not null auto_increment,
-        	city varchar(255) not null,
+    	table address (
+       	id integer not null auto_increment,
+        	landmark varchar(255) not null,
+        	name varchar(255) not null,
+        	phone_number bigint not null,
         	state varchar(255) not null,
-        	street varchar(255) not null,
         	zipcode varchar(255) not null,
+       	 	user_id integer not null,
+        	primary key (id)
+    	)
+    	
+    	table product (
+       	id integer not null auto_increment,
+        	brand varchar(255) not null,
+        	category varchar(255) not null,
+        	description varchar(255) not null,
+        	name varchar(255) not null,
+        	price integer not null,
+        	primary key (id)
+    	)
+    	
+    	table order (
+      	id integer not null auto_increment,
+        	product_quantity integer not null,
+        	address_id integer not null,
+        	product_id integer not null,
+        	user_id integer not null,
         	primary key (id)
     	)
       ```
@@ -71,8 +109,8 @@
 
 - Project Summary :
 ```
-  This is a Spring Boot project of Employee Management System. Employees can register themselves by filling the required information.
+  This is a Spring Boot project of Ecommerce API. User`(Buyer or Seller)` can register themselves by filling the required information.
   Upon registration basic validation applied to the filled data if all the validation passes then and only then a data is registered into the system.
-  Employee can able to fetch their saved information , can able to update the information ,
-  as well as can able to unregister themselves from the system if they want to.
+  User`(Seller)` can able to register their product , fetch their saved product information and able to unregister their product if they want to. Whereas,
+  User`(Buyer)` can able to order their required quantity of the product from the registered products using the Ecommerce API.
 ```
