@@ -48,7 +48,7 @@
   4. Database Design
       - Used MySQL Database
       ```
-       create table employee (
+       table employee (
        	id bigint not null auto_increment,
         	first_name varchar(255) not null,
         	last_name varchar(255) not null,
@@ -56,7 +56,7 @@
         	primary key (id)
     	)
     	
-		create table address (
+		table address (
        	id bigint not null auto_increment,
         	city varchar(255) not null,
         	state varchar(255) not null,
