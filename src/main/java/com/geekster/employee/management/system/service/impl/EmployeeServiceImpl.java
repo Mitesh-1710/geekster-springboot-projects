@@ -11,7 +11,6 @@ import org.springframework.util.CollectionUtils;
 import com.geekster.employee.management.system.constants.EmployeeManagementSystemConstants;
 import com.geekster.employee.management.system.model.Address;
 import com.geekster.employee.management.system.model.Employee;
-import com.geekster.employee.management.system.repository.AddressRepository;
 import com.geekster.employee.management.system.repository.EmployeeRepository;
 import com.geekster.employee.management.system.response.EmployeeResponse;
 import com.geekster.employee.management.system.service.EmployeeService;
@@ -21,9 +20,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Autowired
 	private EmployeeRepository employeeRepository;
-
-	@Autowired
-	private AddressRepository addressRepository;
 
 	@Override
 	public String addEmployee(Employee employee) {
@@ -57,7 +53,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 		String response = null;
 		if (optionalEmployee.isPresent()) {
 			employeeRepository.deleteById(Long.parseLong(employeeId));
-			addressRepository.deleteById(optionalEmployee.get().getAddress().getId());
 			response = EmployeeManagementSystemConstants.EMPLOYEE_DELETE_RESPONSE;
 		} else {
 			response = EmployeeManagementSystemConstants.INVALID_EMPLOYEE_ID_RESPONSE;
