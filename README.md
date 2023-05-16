@@ -83,7 +83,7 @@
   4. Database Design
       - Used MySQL Database
       ```
-       	table student (
+       table student (
        	id bigint not null auto_increment,
         	country varchar(255) not null,
         	district varchar(255) not null,
