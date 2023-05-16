@@ -30,7 +30,7 @@ public class LaptopService {
 	}
 
 	public Laptop getLaptopById(String id) {
-		Optional<Laptop> optionalLaptop = laptopRepository.findById(id);
+		Optional<Laptop> optionalLaptop = laptopRepository.findById(Long.parseLong(id));
 		Laptop laptop = null;
 		if (optionalLaptop.isPresent()) {
 			laptop = optionalLaptop.get();
@@ -39,7 +39,7 @@ public class LaptopService {
 	}
 
 	public Laptop updateLaptop(String id, Laptop newLaptop) {
-		Optional<Laptop> optionalLaptop = laptopRepository.findById(id);
+		Optional<Laptop> optionalLaptop = laptopRepository.findById(Long.parseLong(id));
 		Laptop laptop = null;
 		if (optionalLaptop.isPresent()) {
 			laptop = optionalLaptop.get();
@@ -53,6 +53,6 @@ public class LaptopService {
 	}
 
 	public void deleteLaptop(String id) {
-		laptopRepository.deleteById(id);
+		laptopRepository.deleteById(Long.parseLong(id));
 	}
 }

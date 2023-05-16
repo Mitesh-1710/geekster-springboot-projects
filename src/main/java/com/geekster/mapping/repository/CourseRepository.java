@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.geekster.mapping.model.Course;
 
 @Repository
-public interface CourseRepository extends JpaRepository<Course, String> {
+public interface CourseRepository extends JpaRepository<Course, Long> {
 }

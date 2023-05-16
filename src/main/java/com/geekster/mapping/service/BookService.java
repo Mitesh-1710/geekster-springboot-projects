@@ -24,7 +24,7 @@ public class BookService {
 	}
 
 	public Book getBookById(String id) {
-		Optional<Book> optionalBook = bookRepository.findById(id);
+		Optional<Book> optionalBook = bookRepository.findById(Long.parseLong(id));
 		Book book = null;
 		if (optionalBook.isPresent()) {
 			book = optionalBook.get();
@@ -33,7 +33,7 @@ public class BookService {
 	}
 
 	public Book updateBook(String id, Book newBook) {
-		Optional<Book> optionalBook = bookRepository.findById(id);
+		Optional<Book> optionalBook = bookRepository.findById(Long.parseLong(id));
 		Book book = null;
 		if (optionalBook.isPresent()) {
 			book = optionalBook.get();
@@ -48,6 +48,6 @@ public class BookService {
 	}
 
 	public void deleteBook(String id) {
-		bookRepository.deleteById(id);
+		bookRepository.deleteById(Long.parseLong(id));
 	}
 }

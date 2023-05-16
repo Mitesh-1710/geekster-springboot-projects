@@ -54,7 +54,7 @@ public class Student {
 	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
 	private List<Book> books;
 
-	@ManyToMany(mappedBy = "studentList")
+	@ManyToMany(mappedBy = "studentList", cascade = CascadeType.ALL)
 	private List<Course> courses;
 
 	@OneToOne(mappedBy = "student", cascade = CascadeType.ALL)

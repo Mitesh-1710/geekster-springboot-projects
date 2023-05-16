@@ -34,7 +34,7 @@ public class CourseService {
 	}
 
 	public Course getCourseById(String id) {
-		Optional<Course> optionalCourse = courseRepository.findById(id);
+		Optional<Course> optionalCourse = courseRepository.findById(Long.parseLong(id));
 		Course course = null;
 		if (optionalCourse.isPresent()) {
 			course = optionalCourse.get();
@@ -43,7 +43,7 @@ public class CourseService {
 	}
 
 	public Course updateCourse(String id, Course newCourse) {
-		Optional<Course> optionalCourse = courseRepository.findById(id);
+		Optional<Course> optionalCourse = courseRepository.findById(Long.parseLong(id));
 		Course course = null;
 		if (optionalCourse.isPresent()) {
 			course = optionalCourse.get();
@@ -58,6 +58,6 @@ public class CourseService {
 	}
 
 	public void deleteCourse(String id) {
-		courseRepository.deleteById(id);
+		courseRepository.deleteById(Long.parseLong(id));
 	}
 }

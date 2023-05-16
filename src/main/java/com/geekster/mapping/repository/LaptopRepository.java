@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.geekster.mapping.model.Laptop;
 
 @Repository
-public interface LaptopRepository extends JpaRepository<Laptop, String> {
+public interface LaptopRepository extends JpaRepository<Laptop, Long> {
 }

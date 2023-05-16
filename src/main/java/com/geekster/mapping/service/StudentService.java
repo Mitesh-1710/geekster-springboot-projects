@@ -24,7 +24,7 @@ public class StudentService {
 	}
 
 	public Student getStudentById(String id) {
-		Optional<Student> optionalStudent = studentRepository.findById(id);
+		Optional<Student> optionalStudent = studentRepository.findById(Long.parseLong(id));
 		Student student = null;
 		if (optionalStudent.isPresent()) {
 			student = optionalStudent.get();
@@ -33,7 +33,7 @@ public class StudentService {
 	}
 
 	public Student updateStudent(String id, Student newStudent) {
-		Optional<Student> optionalStudent = studentRepository.findById(id);
+		Optional<Student> optionalStudent = studentRepository.findById(Long.parseLong(id));
 		Student student = null;
 		if (optionalStudent.isPresent()) {
 			student = optionalStudent.get();
@@ -49,6 +49,6 @@ public class StudentService {
 	}
 
 	public void deleteStudent(String id) {
-		studentRepository.deleteById(id);
+		studentRepository.deleteById(Long.parseLong(id));
 	}
 }
