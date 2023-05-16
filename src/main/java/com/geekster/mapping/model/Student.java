@@ -1,6 +1,5 @@
 package com.geekster.mapping.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -49,10 +48,10 @@ public class Student {
 	private Address address;
 
 	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
-	private List<Book> books = new ArrayList<>();
+	private List<Book> books;
 
 	@ManyToMany(mappedBy = "studentList")
-	private List<Course> courses = new ArrayList<>();
+	private List<Course> courses;
 
 	@OneToOne(mappedBy = "student", cascade = CascadeType.ALL)
 	private Laptop laptop;
