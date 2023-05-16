@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.geekster.mapping.model.Laptop;
+import com.geekster.mapping.model.Student;
 import com.geekster.mapping.repository.LaptopRepository;
 
 @Service
@@ -14,8 +15,13 @@ public class LaptopService {
 
 	@Autowired
 	private LaptopRepository laptopRepository;
+	
+	@Autowired
+	private StudentService studentService;
 
 	public Laptop createLaptop(Laptop laptop) {
+		Student student = studentService.getStudentById(laptop.getStudent().getId().toString());
+		laptop.setStudent(student);
 		return laptopRepository.save(laptop);
 	}
 

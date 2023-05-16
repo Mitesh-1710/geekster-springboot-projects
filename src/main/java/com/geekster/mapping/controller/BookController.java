@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.geekster.mapping.model.Book;
+import com.geekster.mapping.model.Student;
 import com.geekster.mapping.service.BookService;
+import com.geekster.mapping.service.StudentService;
 
 @RestController
 @RequestMapping("api/v1/mapping")
@@ -21,9 +23,14 @@ public class BookController {
 
 	@Autowired
 	private BookService bookService;
+	
+	@Autowired
+	private StudentService studentService;
 
 	@PostMapping("/book")
 	public Book createBook(@RequestBody Book book) {
+		Student student = studentService.getStudentById(book.getStudent().getId().toString());
+		book.setStudent(student);
 		return bookService.createBook(book);
 	}
 

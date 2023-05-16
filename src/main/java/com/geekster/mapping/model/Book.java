@@ -1,5 +1,8 @@
 package com.geekster.mapping.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,34 +15,33 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="book")
+@Table(name = "book")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Book {
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="id",nullable=false)
-    private Long id;
-    
-    @Column(name="title",nullable=false)
-    private String title;
-    
-    @Column(name="author",nullable=false)
-    private String author;
-    
-    @Column(name="description",nullable=false)
-    private String description;
-    
-    @Column(name="price",nullable=false)
-    private String price;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", nullable = false)
+	private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "student_id", referencedColumnName="id")
-    private Student student;
+	@Column(name = "title", nullable = false)
+	private String title;
 
+	@Column(name = "author", nullable = false)
+	private String author;
+
+	@Column(name = "description", nullable = false)
+	private String description;
+
+	@Column(name = "price", nullable = false)
+	private String price;
+
+	@ManyToOne
+	@JoinColumn(name = "student_id", referencedColumnName = "id")
+	private Student student;
 
 }
