@@ -60,5 +60,6 @@
   This is a Spring Boot project of Stock Management System. Company can register their Stocks by filling the required information.
   Upon registration basic validation applied to filled data if all the validation passes then and only then a stock is registered into the system.
   Company can able to fetch their saved Stocks information , can able to update the information ,
-  as well as can able to delete the Stocks from the system based on client count of the stock. Company can also be able to filter the Stocks data based on Stock type , market cap , price , registration date.
+  as well as can able to delete the Stocks from the system based on client count of the stock. 
+  Company can also be able to filter the Stocks data based on Stock type , market cap , price , registration date.
 ```
