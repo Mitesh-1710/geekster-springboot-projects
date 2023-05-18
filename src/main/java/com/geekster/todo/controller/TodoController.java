@@ -23,27 +23,27 @@ import jakarta.validation.Valid;
 public class TodoController {
 
 	@Autowired
-	private TodoService userService;
+	private TodoService todoService;
 
 	@PostMapping
 	public String addTodo(@Valid @RequestBody Todo todo) {
-		return userService.addTodo(todo);
+		return todoService.addTodo(todo);
 	}
 
 	@GetMapping(ApiPath.GET_ALL_TODOS_API)
 	public List<Todo> getAllTodo() {
-		return userService.getAllTodos();
+		return todoService.getAllTodos();
 	}
 
 	@PutMapping
 	public String updateTodo(@Valid @RequestBody Todo todo) {
-		return userService.updateTodo(todo);
+		return todoService.updateTodo(todo);
 
 	}
 
 	@DeleteMapping(ApiPath.DELETE_TODO_API)
 	public String deleteTodo(@PathVariable Integer todoId) {
-		return userService.deleteTodo(todoId);
+		return todoService.deleteTodo(todoId);
 	}
 
 }
