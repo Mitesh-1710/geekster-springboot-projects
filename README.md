@@ -1,4 +1,4 @@
-# Spring Boot Project User Management System.
+# Spring Boot Project Stock Management System.
 
 - Frameworks and Language used :
   - Spring Boot `SNAPSHOT 3.0.6`
@@ -7,66 +7,48 @@
 - Data Flow :
   1. Controller
       <br/>
-      > Student
-      - addStudent : This method is used to call the addStudent method of the service class to save the student data into the database.
-      - updateDepartmentByStudentId : This method is used to call the updateDepartmentByStudentId method of the service class to updated student's department in the database based on selected student id.
-      - deleteStudentById : This method is used to call the deleteStudentById method of the service class to delete student from the database based on selected student id.
-      - getAllStudents : This method is used to call the getAllStudents method of the service class to get the list of students data available in the database.
-      - getStudentById :  This method is used to call the getStudentById method of the service class to get the student data from the database based on selected student id.
-        
-      <br/>
-      
-      > Event
-      - addEvent : This method is used to call the addEvent method of the service class to save the event data into the database.
-      - updateEventById : This method is used to call the updateEventById method of the service class to updated the event data into the database based on selected event id.
-      - deleteEventById : This method is used to call the deleteEventById method of the service class to delete the event from the database based on selected event id.
-      - getAllEventsByDate : This method is used to call the getAllEventsByDate method of the service class to get the list of events data available in the database based on selected date.
+      - addStocks : This method is used to call the addStocks method of the service class to save the list of stocks data into the database.
+      - getStocksByType : This method is used to call the getStocksByType method of the service class to get the list of stocks data available in the database based on selected stock type.
+      - getStocksAbovePriceAndLowerDate : This method is used to call the getStocksAbovePriceAndLowerDate method of the service class to get the list of stocks data available in the database based on selected stock price and date where stock price is greater than selected price and selected date is less than stock registration date sorted by name.
+      - getAllStocksAboveMarketCap : This method is used to call the getStocksByType method of the service class to get the list of stocks data available in the database based on selected cap percentage where stock market cap is above selected cap percentage.
+      - updateMarketCap : This method is used to call the updateMarketCap method of the service class to save the list of stocks data into the database.
+      - deleteStocksBasedOnCount : This method is used to call the deleteStocksBasedOnCount method of the service class to delete the stocks data from the database based on selected client count where stock owner count is less than selected client count.
+      - updateTypeById : This method is used to call the updateTypeById method of the service class to save the stock type data into the database.
+      - updateStockById : This method is used to call the updateStockById method of the service class to save the stock data into the database.
       
   2. Services
       <br/>
-      > Student
-      - addStudent : This method is used to call the save method of the repository class to save the student data into the database.
-      - updateDepartmentByStudentId :  This method is also used to call the save method of the repository class to updated the student's department in the database based on selected student id.
-      - deleteStudentById : This method is used to call the deleteById method of the repository class to delete the student data from the database based on selected student id.
-      - getAllStudents : This method is used to call the findAll method of the repository class to get the list of students available in the database. 
-      - getStudentById :  This method is used to call the findById method of the repository class to get the student data from the database based on selected student id.
-      
-      <br/>
-      
-      > Event
-      - addEvent : This method is used to call the save method of the repository class to save the event data into the database.
-      - updateEventById :  This method is also used to call the save method of the repository class to updated the event data into the database based on selected event id.
-      - deleteEventById : This method is used to call the deleteById method of the repository class to delete the event data from the database based on selected event id.
-      - getAllEventsByDate : This method is used to call the findAllByDate method of the repository class to get the list of events available in the database based on selected date.
-      
+      - addStocks : This method is used to call the save method of the repository class to save the list of stocks data into the database.
+      - getStocksByType : This method is used to call the findAllByStockType method of the repository class to get the list of stocks data available in the database based on selected stock type. 
+      - getStocksAbovePriceAndLowerDate : This method is used to call the findByStockPriceGreaterThanAndStockRegisteredOnLessThanOrderByStockName method of the repository class to get the list of stocks data available in the database based on selected stock price and date where stock price is greater than selected price and selected date is less than stock registration date sorted by name. 
+      - getAllStocksAboveMarketCap : This method is used to call the findAllStocksAboveMarketCap method of the repository class to get the list of stocks data available in the database based on selected cap percentage where stock market cap is above selected cap percentage.
+      - updateMarketCap : This method is used to call the save method of the repository class to save the stock market cap data into the database.
+      - deleteStocksBasedOnCount : This method is used to call the deleteStocksBasedOnCount method of the repository class to delete the stocks data from the database based on selected client count where stock owner count is less than selected client count.
+      - updateTypeById : This method is used to call the save method of the repository class to save the stock type data into the database.
+      - updateStockById : This method is used to call the save method of the repository class to save the stock data into the database.
+          
   3. Repository
       - Used `Predefined` JpaRepository methods such as findById , save , deleteById , findAll for basic CRUD operations.
         
       <br/>
       
-      > Event 
-      - findAllByDate `Userdefined` : This method is used to return the list of Event based on selected date.
+      - findAllByStockType `Userdefined` : This method is used to return the list of stocks based on selected stock type.
+      - findByStockPriceGreaterThanAndStockRegisteredOnLessThanOrderByStockName `Userdefined` : This method is used to return the list of stocks where stock price is greater than selected price and stock registration date is less than selected date and sorted by stock name in ascending order.
+      - findAllStocksAboveMarketCap `Userdefined` : This method is used to return the list of stocks where stock market cap is above selected cap percentage.
+      - deleteStocksBasedOnCount `Userdefined` : This method is used to delete stocks where stocks owner count is less than the selected count.
       
   4. Database Design
       - Used H2 Database
       ```
-		table event (
-       	event_id integer not null,
-        	event_date date not null,
-        	end_time time not null,
-        	event_name varchar(255),
-        	location_of_event varchar(255),
-        	start_time time not null,
-        	primary key (event_id)
-    	)
-    	
-		table student (
-       	student_id integer not null,
-        	age integer not null check (age<=25 AND age>=18),
-        	department varchar(255) not null,
-        	first_name varchar(255),
-        	last_name varchar(255),
-        	primary key (student_id)
+		table stock (
+       	stock_id integer generated by default as identity,
+        	market_cap float(53) not null,
+        	name varchar(255),
+        	owner_count integer not null,
+        	price float(53) not null,
+        	registred_on timestamp(6) not null,
+        	type varchar(255) not null,
+        	primary key (stock_id)
     	)
       ```
    
@@ -75,8 +57,8 @@
 
 - Project Summary :
 ```
-  This is a Spring Boot project of University Event Management System. University can register their Student and Event data by filling the required information.
-  Upon registration basic validation applied to filled data if all the validation passes then and only then a data is registered into the system.
-  University can able to fetch their saved Student and Event information , can able to update the information ,
-  as well as can able to unregister the Student and Event from the system if they want to. University can also be able to filter Event data based on selected date.
+  This is a Spring Boot project of Stock Management System. Company can register their Stocks by filling the required information.
+  Upon registration basic validation applied to filled data if all the validation passes then and only then a stock is registered into the system.
+  Company can able to fetch their saved Stocks information , can able to update the information ,
+  as well as can able to delete the Stocks from the system based on client count of the stock. Company can also be able to filter the Stocks data based on Stock type , market cap , price , registration date.
 ```
