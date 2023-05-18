@@ -1,4 +1,4 @@
-# Spring Boot Project User Management System.
+# Spring Boot Project Todo App.
 
 - Frameworks and Language used :
   - Spring Boot (SNAPSHOT 3.0.6)
@@ -6,28 +6,25 @@
 
 - Data Flow :
   1. Controller
-      - addUser : This method is used to call the addUser method of the service class to saves user into the database.
-      - getUser : This method is used to call the getUser method of the service class to get user from the database based on selected user id.
-      - getAllUser : This method is used to call the getAllUser method of the service class to get the list of users available in the database.
-      - updateUser : This method is used to call the updateUser method of the service class to updated user data in the database based on selected user id.
-      - deleteUser :  This method is used to call the deleteUser method of the service class to delete user from the database based on selected user id.
+      - addTodo : This method is used to call the addTodo method of the service class to saves todo into the database.
+      - getAllTodos : This method is used to call the getAllTodos method of the service class to get the list of todos available in the database.
+      - updateTodo : This method is used to call the updateTodo method of the service class to updated todo data in the database based on selected todo id.
+      - deleteTodo :  This method is used to call the deleteTodo method of the service class to delete todo from the database based on selected todo id.
       
   2. Services
-      - addUser : This method is used to call the save method of the repository class to saves user into the database.
-      - getUser : This method is used to call the findById method of the repository class to get user from the database based on selected user id.
-      - getAllUser : This method is used to call the findAll method of the repository class to get the list of users available in the database.
-      - updateUser : This method is used to call the update method of the repository class to updated user data in the database based on selected user id.
-      - deleteUser : This method is used to call the delete method of the repository class to delete user from the database based on selected user id.
+      - addTodo : This method is used to call the save method of the repository class to saves todo into the database.
+      - getAllTodos : This method is used to call the findAll method of the repository class to get the list of todos available in the database.
+      - updateTodo : This method is used to call the update method of the repository class to updated todo data in the database based on selected todo id.
+      - deleteTodo : This method is used to call the delete method of the repository class to delete todo from the database based on selected todo id.
       
   3. Repository
-      - save : This method is used to saves user into the database.
-      - findById : This method is used to get user from the database based on selected user id.
-      - findAll : This method is used to get the list of users available in the database.
-      - update : This method is used to updated user data in the database  based on selected user id.
-      - delete : This method is used to delete user from the database based on selected user id.
+      - save : This method is used to saves todo into the database.
+      - findAll : This method is used to get the list of todos available in the database.
+      - update : This method is used to updated todo data in the database  based on selected todo id.
+      - delete : This method is used to delete todo from the database based on selected todo id.
       
   4. Database Design
-      - Used HashMap to store userId as a key and user object as a value.
+      - Used HashMap to store todoId as a key and todo object as a value.
    
 - Data Structure used in your project :
   - List
@@ -35,8 +32,8 @@
 
 - Project Summary :
 ```
-  This is a Spring Boot project of User Management System. User can register themselves by filling the required information.
-  Upon registration basic validation applied to filled data if all the validation passes then and only then a data is registered into the system.
-  User can able to fetch their saved information , can able to update the information ,
-  as well as can able to unregister themselves from the system if they want to.
+  This is a Spring Boot project of Todo App. We can create Todos by filling the required information.
+  Upon creation/save Todo basic validation applied to filled data if all the validation passes then and only then a Todo is stored into the system.
+  We can able to fetch all the saved todo information , can able to update the information ,
+  as well as can able to delete todos from the system if they we want to.
 ```
