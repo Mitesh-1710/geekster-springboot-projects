@@ -33,7 +33,7 @@
 - Project Summary :
 ```
   This is a Spring Boot project of Todo App. We can create Todos by filling the required information.
-  Upon creation/save Todo basic validation applied to filled data if all the validation passes then and only then a Todo is stored into the system.
+  Upon creation/save Todo, basic validation applied to filled data if all the validation passes then and only then a Todo is stored into the system.
   We can able to fetch all the saved todo information , can able to update the information ,
-  as well as can able to delete todos from the system if they we want to.
+  as well as can able to delete todos from the system if we want to.
 ```
